@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!--FireBase library-->
+  <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBn7WwT6_mi-6bkdGNXN-b1WlXDdUYrOPI",
+        authDomain: "bugslayer-3857a.firebaseapp.com",
+        databaseURL: "https://bugslayer-3857a.firebaseio.com",
+        projectId: "bugslayer-3857a",
+        storageBucket: "",
+        messagingSenderId: "150447704394"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <!--My JS file-->
+  <script src="nuovo_bug.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+      text-align: center;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 524px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav2 {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+        
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+
+    .sidenav {
+    height: 100%;
+    width: 160px;
+    /* position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0; */
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+    }
+
+    .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    }
+
+    .sidenav a:hover {
+    color: #f1f1f1;
+    }
+
+
+    
+  </style>
+</head>
+<body onload="agenti()">
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"></button>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand navbar-center" href="#">BUG SLAYER</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <!-- <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">BUG SLAYER</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul> -->
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" onclick="logout()"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class=" col-sm-2 sidenav">
+        
+      <a href="#" onclick="goToNuovoBug()">Nuovo Bug</a>
+      <hr style="color:antiquewhite">
+      <a href="#" onclick="goToNuovoUtente()">Gestisci Utenti</a>
+      <hr style="color:antiquewhite">
+      <a href="#" onclick="goToVisualizza()">Gestisci Bug</a>
+      <hr style="color:antiquewhite">
+      <a href="#" onclick="goToStats()">Statistiche</a>
+      
+    </div>
+    <div class="col-sm-10 text-left">
+        <h3>Crea la segnalazione per un bug:</h3>
+        <hr>
+            <div class="col-sm-5 text-left">
+            <form>
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Progetto</label>
+                      <input type="email" class="form-control" id="software" placeholder="Campo obbligatorio">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlSelect1">Gravità</label>
+                      <select class="form-control" id="grav">
+                        <option>Massima</option>
+                        <option>Moderata</option>
+                        <option>Minima</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlSelect2">Priorità</label>
+                      <select class="form-control" id="prior">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect2">Frequenza</label>
+                        <select class="form-control" id="freq">
+                            <option>Sempre</option>
+                            <option>Spesso</option>
+                            <option>Raramente</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect2">Assegna a</label>
+                        <select class="form-control" id="ass">
+                            
+                        </select>
+                    </div>
+            </form>       
+        </div>
+        <div class="col-sm-5 text-left">
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Descrizione</label>
+                <textarea class="form-control" id="desc" rows="3" placeholder="Campo obbligatorio (max 255 car)"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Passaggi per riprodurlo</label>
+                <textarea class="form-control" id="riprod" rows="3" placeholder="Campo obbligatorio(max 255 car)"></textarea>
+            </div>
+            <button type="button" class="btn btn-primary btn-lg btn-block" onclick="crea_bug()">Segnala Bug</button>
+
+        </div>
+    </div>
+    
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2018 Copyright: Ivan Bollici
+        
+    </div>
+</footer>
+
+</body>
+</html>

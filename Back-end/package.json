@@ -1,0 +1,24 @@
+{
+  "name": "bugslayer",
+  "version": "1.0.0",
+  "description": "A simple JavaScript bug tracker",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ivan Bollici",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "del": "^3.0.0",
+    "express": "^4.16.4",
+    "http": "0.0.0",
+    "method-override": "^3.0.0",
+    "morgan": "^1.9.1",
+    "sqlite3": "^4.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}

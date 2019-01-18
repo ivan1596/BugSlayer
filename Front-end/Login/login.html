@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBn7WwT6_mi-6bkdGNXN-b1WlXDdUYrOPI",
+        authDomain: "bugslayer-3857a.firebaseapp.com",
+        databaseURL: "https://bugslayer-3857a.firebaseio.com",
+        projectId: "bugslayer-3857a",
+        storageBucket: "",
+        messagingSenderId: "150447704394"
+    };
+    firebase.initializeApp(config);
+    </script>
+    <!--My JS file-->
+    <script src="login.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="login.css">
+  
+</head>
+<body>
+    <div class="form">
+        <div class="imgcontainer">
+          <img src="../img/avatar_bw.png" alt="Avatar" class="avatar">
+        </div>
+      
+        <div class="container">
+          <label><b>E-Mail</b></label>
+          <input type="text" placeholder="Inserisci Email" name="uname" required id="email">
+      
+          <label><b>Password</b></label>
+          <input type="password" placeholder="Inserisci Password" name="psw" required id="password">
+      
+          <button onclick="login()">Login</button>
+          
+        </div>
+      
+        <div class="container" style="background-color:#f1f1f1">
+          <h3 style="text-align:center">Aiutaci a trovare i bug! Inviaci una segnalazione</h3>
+          <button type="button" class="btn btn-primary" onclick="segnala()">Segnala Bug!</button>
+          <!-- <span class="psw">Forgot <a href="#">password?</a></span> -->
+        </div>
+    </div>
+
+
+</body>
+</html>
