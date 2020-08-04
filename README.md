@@ -6,8 +6,8 @@ Requisiti:
 
 Inizzializzazione e avvio del server:
 - Aprire il terminale sulla cartella Back-end
-- Digitare il comando <npm install> per installare le dipendenze
-- Una volta terminata l'installazione digitare il comando <node server.js> per avviare il server
+- Digitare il comando -npm install per installare le dipendenze
+- Una volta terminata l'installazione digitare il comando -node server.js per avviare il server
 
 Utilizzo dell'applicazione:
 - Aprire il file login.html nella cartella Front-end/login/
@@ -16,4 +16,4 @@ Utilizzo dell'applicazione:
 
 Possibili problematiche:
 Se non si riesce ad effettuare il login potrebbrero esserci problemi con i permessi di firebase 
-contattare l'account proprietario del progetto firebase ivan.bollici@studenti.it 
+contattare l'account proprietario del progetto firebase ivan.bollici@studenti.unicam.it 
